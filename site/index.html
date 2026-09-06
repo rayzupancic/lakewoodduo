@@ -144,10 +144,10 @@
   .status .dot{width:7px;height:7px;border-radius:50%;background:var(--sand)}
 
   /* ---------- gallery ---------- */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-  @media (max-width:900px){ .gallery{grid-template-columns:1fr 1fr} }
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+  @media (max-width:620px){ .gallery{grid-template-columns:1fr 1fr} }
   .gallery figure{margin:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
-  .gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 28%}
+  .gallery img{width:100%;aspect-ratio:4/5;object-fit:cover}
   .gallery figcaption{font-size:.85rem;color:var(--ink-soft);padding:.65rem .8rem}
 
   /* ---------- about ---------- */
@@ -294,21 +294,25 @@
     <div class="sec-head">
       <p class="eyebrow">Inside</p>
       <h2>Updated where it counts</h2>
-      <p>Recent work at the Arbutus property: new luxury vinyl plank throughout the living areas and bedrooms, fresh paint, and a rebuilt bathroom with a tiled walk-in shower.</p>
+      <p>Recent work at the Arbutus property: a refinished kitchen with granite counters and stainless appliances, new plank flooring in the living areas, fresh carpet in the bedrooms, and a rebuilt bathroom with a tiled walk-in shower.</p>
     </div>
 
     <div class="gallery">
       <figure>
+        <img src="images/kitchen.jpg" alt="Kitchen with granite counters, gray cabinets, a double stainless sink, and a window over the sink">
+        <figcaption>Granite counters and refinished cabinets</figcaption>
+      </figure>
+      <figure>
+        <img src="images/kitchen-detail.jpg" alt="Kitchen counter run with stainless microwave and dishwasher and tile-look plank flooring">
+        <figcaption>Stainless appliances, tile-look plank floor</figcaption>
+      </figure>
+      <figure>
         <img src="images/interior-living.jpg" alt="Living area with new wide-plank vinyl flooring and freshly painted walls">
-        <figcaption>New plank flooring through the main living area</figcaption>
+        <figcaption>New plank flooring in the living areas</figcaption>
       </figure>
       <figure>
-        <img src="images/interior-bedroom.jpg" alt="Bedroom with new plank flooring, baseboard heat, and a shaded window">
-        <figcaption>Bedroom, refinished floor to ceiling</figcaption>
-      </figure>
-      <figure>
-        <img src="images/interior-room.jpg" alt="Second bedroom with new plank flooring and natural light from a shaded window">
-        <figcaption>Second bedroom with south light</figcaption>
+        <img src="images/carpet-bedroom.jpg" alt="Bedroom with new wall-to-wall carpet and clean white baseboards">
+        <figcaption>New carpet in the bedrooms</figcaption>
       </figure>
       <figure>
         <img src="images/interior-bath.jpg" alt="Updated bathroom with a tiled walk-in shower, pebble floor, and a new vanity">

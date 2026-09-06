@@ -1,0 +1,5 @@
+# source photo originals — kept locally, not in the repo
+1120-images/
+Claude outputs/
+*.HEIC
+*.MOV
