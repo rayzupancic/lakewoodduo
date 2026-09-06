@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lakewood Duo LLC — Residential Rentals in Lakewood, Colorado</title>
+<meta name="description" content="Lakewood Duo LLC owns and manages a small portfolio of well-maintained residential rentals in Lakewood, Colorado.">
+
+<!-- ============================================================
+     LAKEWOOD DUO LLC — one-page static site
+     ------------------------------------------------------------
+     TO TURN ON THE CONTACT FORM:
+     1. Open your Google Form, click Send, then the < > (embed) tab.
+     2. Copy the URL inside src="..."  (it ends in /viewform?embedded=true)
+     3. Paste it between the quotes on the GOOGLE_FORM_URL line
+        near the bottom of this file.
+     Until then, the contact section shows an email link instead.
+
+     TO CHANGE THE VACANCY NOTICE:
+     Edit the text in the .vacancy-note block in the Contact section.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1c2530;
+    --ink-soft:#4a5765;
+    --line:#e2e0da;
+    --paper:#faf8f4;
+    --card:#ffffff;
+    --accent:#2f5d50;
+    --accent-soft:#eaf1ee;
+    --sand:#b98a4b;
+    --shadow:0 1px 2px rgba(28,37,48,.06), 0 8px 24px rgba(28,37,48,.07);
+    --radius:14px;
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:var(--accent)}
+  .wrap{width:min(1120px,92vw);margin:0 auto}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(250,248,244,.92);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
+  .mark{
+    width:38px;height:38px;flex:none;border-radius:9px;
+    background:var(--accent);color:#fff;
+    display:grid;place-items:center;
+    font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:.02em;
+  }
+  .brand b{font-family:var(--serif);font-weight:600;font-size:1.14rem;letter-spacing:.01em;display:block;line-height:1.2}
+  .brand .sub{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  nav{display:flex;gap:1.6rem;align-items:center}
+  nav a{color:var(--ink-soft);text-decoration:none;font-size:.93rem;font-weight:500}
+  nav a:hover{color:var(--accent)}
+  .btn{
+    display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    padding:.6rem 1.15rem;border-radius:999px;font-size:.93rem;font-weight:600;
+    border:1px solid var(--accent);
+  }
+  .btn:hover{background:#26493f;border-color:#26493f}
+  .btn.ghost{background:transparent;color:var(--accent)}
+  .btn.ghost:hover{background:var(--accent-soft);color:var(--accent)}
+  @media (max-width:720px){ nav .hide-sm{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:3.4rem 0 2.6rem}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;align-items:center}
+  .eyebrow{
+    font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--sand);font-weight:600;margin:0 0 .9rem
+  }
+  h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.1rem,4.4vw,3.1rem);line-height:1.12;letter-spacing:-.01em;
+    margin:0 0 1rem
+  }
+  .lede{font-size:1.06rem;color:var(--ink-soft);margin:0 0 1.6rem;max-width:34rem}
+  .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
+  .hero-photo{
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    border:1px solid var(--line);background:#fff;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:1.8rem}
+    .hero{padding:2.4rem 0 1.8rem}
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:3.2rem 0;border-top:1px solid var(--line)}
+  .sec-head{max-width:38rem;margin:0 0 2rem}
+  h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.55rem,2.8vw,2.05rem);line-height:1.2;margin:.35rem 0 .6rem
+  }
+  .sec-head p{color:var(--ink-soft);margin:0}
+
+  /* ---------- property cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  @media (max-width:900px){ .cards{grid-template-columns:1fr 1fr} }
+  @media (max-width:620px){ .cards{grid-template-columns:1fr} }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column
+  }
+  .card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .card-body{padding:1.15rem 1.25rem 1.35rem}
+  .card h3{font-family:var(--serif);font-weight:600;font-size:1.16rem;margin:0 0 .15rem;line-height:1.3}
+  .card .city{font-size:.85rem;color:var(--ink-soft);margin:0 0 .8rem}
+  .card p.desc{font-size:.95rem;color:var(--ink-soft);margin:0 0 1rem}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+  .tag{
+    font-size:.76rem;font-weight:500;color:var(--accent);
+    background:var(--accent-soft);border-radius:999px;padding:.25rem .6rem
+  }
+  .status{
+    display:inline-flex;align-items:center;gap:.42rem;
+    font-size:.78rem;font-weight:600;letter-spacing:.02em;
+    color:#7a5a22;background:#fbf2e2;border:1px solid #f0e0c2;
+    border-radius:999px;padding:.24rem .65rem;margin-bottom:.75rem
+  }
+  .status .dot{width:7px;height:7px;border-radius:50%;background:var(--sand)}
+
+  /* ---------- gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  @media (max-width:900px){ .gallery{grid-template-columns:1fr 1fr} }
+  .gallery figure{margin:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+  .gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 28%}
+  .gallery figcaption{font-size:.85rem;color:var(--ink-soft);padding:.65rem .8rem}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2.4rem;align-items:start}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;gap:1.6rem} }
+  .facts{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+  .facts li{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:.9rem 1.05rem;
+    font-size:.95rem;color:var(--ink-soft)
+  }
+  .facts strong{display:block;color:var(--ink);font-weight:600;font-size:.95rem;margin-bottom:.1rem}
+
+  /* ---------- contact ---------- */
+  #contact{background:#fff;border-top:1px solid var(--line)}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:2.6rem;align-items:start}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;gap:1.8rem} }
+  .vacancy-note{
+    background:var(--accent-soft);border:1px solid #cfe0d9;border-left:4px solid var(--accent);
+    border-radius:10px;padding:1rem 1.15rem;margin:0 0 1.4rem
+  }
+  .vacancy-note strong{display:block;margin-bottom:.15rem}
+  .vacancy-note p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+  .contact-list{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.7rem;font-size:.97rem}
+  .contact-list span{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .form-panel{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    background:var(--paper);box-shadow:var(--shadow);min-height:420px;display:flex;align-items:center;justify-content:center
+  }
+  .form-panel iframe{width:100%;border:0;display:block;min-height:760px;background:#fff;align-self:stretch}
+  .form-fallback{padding:2rem 1.6rem;text-align:center}
+  .form-fallback h3{font-family:var(--serif);font-weight:600;margin:.4rem 0 .5rem;font-size:1.2rem}
+  .form-fallback p{color:var(--ink-soft);font-size:.95rem;margin:0 0 1.2rem}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:2rem 0 2.6rem;font-size:.9rem;color:var(--ink-soft)}
+  .foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+  .foot a{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <span class="mark">LD</span>
+      <span>
+        <b>Lakewood Duo</b>
+        <span class="sub">Property Management</span>
+      </span>
+    </a>
+    <nav>
+      <a class="hide-sm" href="#properties">Properties</a>
+      <a class="hide-sm" href="#interiors">Interiors</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="btn" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Lakewood, Colorado</p>
+      <h1>Small portfolio.<br>Careful upkeep.</h1>
+      <p class="lede">
+        Lakewood Duo LLC owns and manages three residential rentals just west of Denver —
+        two units on South Arbutus Street and a single-family home on West Asbury Avenue.
+        We keep the list short on purpose, so every property gets attention.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact">Ask about rentals</a>
+        <a class="btn ghost" href="#properties">See the properties</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/arbutus-exterior.jpg" alt="The Lakewood Duo duplex at 1120 and 1122 South Arbutus Street, Lakewood, Colorado">
+    </div>
+  </div>
+</div>
+
+<section id="properties">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The portfolio</p>
+      <h2>Three homes in Lakewood</h2>
+      <p>All three sit in established Lakewood neighborhoods with mature trees, off-street parking, and generous yards.</p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <img src="images/arbutus-1120.jpg" alt="1120 South Arbutus Street — upper unit with covered deck above a two-car garage">
+        <div class="card-body">
+          <span class="status"><span class="dot"></span> Currently occupied</span>
+          <h3>1120 S. Arbutus St.</h3>
+          <p class="city">Lakewood, Colorado</p>
+          <p class="desc">The upper unit of the Arbutus duplex — board-and-batten front, full-width covered deck, and two garage bays underneath.</p>
+          <div class="tags">
+            <span class="tag">Covered deck</span>
+            <span class="tag">Garage parking</span>
+            <span class="tag">Updated interior</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/arbutus-1122.jpg" alt="1122 South Arbutus Street — brick ranch unit with steps up to a covered entry">
+        <div class="card-body">
+          <span class="status"><span class="dot"></span> Currently occupied</span>
+          <h3>1122 S. Arbutus St.</h3>
+          <p class="city">Lakewood, Colorado</p>
+          <p class="desc">The garden-level unit next door — light brick, private entry off the front walk, and a shaded yard under a mature spruce.</p>
+          <div class="tags">
+            <span class="tag">Private entry</span>
+            <span class="tag">Shaded yard</span>
+            <span class="tag">Updated interior</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/asbury-exterior.jpg" alt="8964 West Asbury Avenue — dark-sided bi-level home with brick accents and a large front lawn">
+        <div class="card-body">
+          <span class="status"><span class="dot"></span> Currently occupied</span>
+          <h3>8964 W. Asbury Ave.</h3>
+          <p class="city">Lakewood, Colorado</p>
+          <p class="desc">A bi-level single-family home with brick accents, an attached garage, and a deep front lawn on a quiet residential street.</p>
+          <div class="tags">
+            <span class="tag">Single family</span>
+            <span class="tag">Attached garage</span>
+            <span class="tag">Large lawn</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="interiors">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Inside</p>
+      <h2>Updated where it counts</h2>
+      <p>Recent work at the Arbutus property: new luxury vinyl plank throughout the living areas and bedrooms, fresh paint, and a rebuilt bathroom with a tiled walk-in shower.</p>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <img src="images/interior-living.jpg" alt="Living area with new wide-plank vinyl flooring and freshly painted walls">
+        <figcaption>New plank flooring through the main living area</figcaption>
+      </figure>
+      <figure>
+        <img src="images/interior-bedroom.jpg" alt="Bedroom with new plank flooring, baseboard heat, and a shaded window">
+        <figcaption>Bedroom, refinished floor to ceiling</figcaption>
+      </figure>
+      <figure>
+        <img src="images/interior-room.jpg" alt="Second bedroom with new plank flooring and natural light from a shaded window">
+        <figcaption>Second bedroom with south light</figcaption>
+      </figure>
+      <figure>
+        <img src="images/interior-bath.jpg" alt="Updated bathroom with a tiled walk-in shower, pebble floor, and a new vanity">
+        <figcaption>Rebuilt bath — tiled walk-in shower</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">Who we are</p>
+      <h2>A local owner, not a leasing office</h2>
+      <p style="color:var(--ink-soft)">
+        Lakewood Duo LLC is a small, privately held property investment and management company
+        working in the Denver metro area. We buy in neighborhoods we know, keep the properties
+        in good repair, and manage them ourselves — which means the person who answers your
+        message is the same person who handles the property.
+      </p>
+      <p style="color:var(--ink-soft)">
+        Maintenance is handled promptly, updates are done properly rather than cheaply, and
+        residents are treated like neighbors. That approach keeps our turnover low, which is
+        why vacancies come up rarely.
+      </p>
+    </div>
+    <ul class="facts">
+      <li><strong>Where we invest</strong> Lakewood and the surrounding west Denver metro</li>
+      <li><strong>What we own</strong> Small residential — duplex units and single-family homes</li>
+      <li><strong>How we manage</strong> Directly, by the owners, with local contractors</li>
+      <li><strong>Current status</strong> All units occupied &mdash; inquiries welcome</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Rental information</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <!-- Vacancy notice — edit this block when something opens up -->
+        <div class="vacancy-note">
+          <strong>No vacancies at this time</strong>
+          <p>All three properties are currently occupied. Send us your information and we'll
+             reach out directly when a unit is coming available.</p>
+        </div>
+
+        <p style="color:var(--ink-soft);font-size:.97rem;margin:0">
+          Use the form to tell us what you're looking for — size, timing, and how to reach you.
+          We keep inquiries on file and contact people in the order we received them.
+        </p>
+
+        <ul class="contact-list">
+          <li>
+            <span>Email</span>
+            <a href="mailto:manager@lakewoodduo.com">manager@lakewoodduo.com</a>
+          </li>
+          <li>
+            <span>Service area</span>
+            Lakewood, Colorado
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-panel" id="formPanel">
+        <div class="form-fallback" id="formFallback">
+          <h3>Contact form</h3>
+          <p>The rental inquiry form isn't connected yet. In the meantime, email us and we'll
+             get right back to you.</p>
+          <a class="btn" href="mailto:manager@lakewoodduo.com?subject=Rental%20inquiry">Email manager@lakewoodduo.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>&copy; <span id="yr">2026</span> Lakewood Duo LLC &middot; Lakewood, Colorado</div>
+    <div><a href="mailto:manager@lakewoodduo.com">manager@lakewoodduo.com</a></div>
+  </div>
+</footer>
+
+<script>
+  /* ===========================================================
+     PASTE YOUR GOOGLE FORM EMBED URL BETWEEN THE QUOTES BELOW.
+     Google Forms → Send → < > tab → copy the src="..." value.
+     Leave it empty and the email fallback shows instead.
+     =========================================================== */
+  var GOOGLE_FORM_URL = "";
+
+  (function () {
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    var url = (GOOGLE_FORM_URL || "").trim();
+    if (!url) return;
+    if (url.indexOf("embedded=true") === -1) {
+      url += (url.indexOf("?") === -1 ? "?" : "&") + "embedded=true";
+    }
+    var panel = document.getElementById("formPanel");
+    var frame = document.createElement("iframe");
+    frame.src = url;
+    frame.title = "Lakewood Duo rental inquiry form";
+    frame.setAttribute("loading", "lazy");
+    frame.textContent = "Loading…";
+    panel.innerHTML = "";
+    panel.appendChild(frame);
+  })();
+</script>
+
+</body>
+</html>
