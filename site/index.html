@@ -150,6 +150,20 @@
   .gallery img{width:100%;aspect-ratio:4/5;object-fit:cover}
   .gallery figcaption{font-size:.85rem;color:var(--ink-soft);padding:.65rem .8rem}
 
+  /* ---------- walkthrough video ---------- */
+  .walk{
+    display:grid;grid-template-columns:320px 1fr;gap:2.4rem;align-items:center;
+    margin-top:2.6rem;padding-top:2.6rem;border-top:1px solid var(--line)
+  }
+  .walk video{
+    width:100%;height:auto;display:block;background:#11161c;
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)
+  }
+  .walk h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;margin:0 0 .55rem;line-height:1.25}
+  .walk p{color:var(--ink-soft);margin:0 0 1.3rem;max-width:32rem}
+  .walk .meta{font-size:.85rem;color:var(--ink-soft);margin-top:.9rem}
+  @media (max-width:720px){ .walk{grid-template-columns:1fr;gap:1.5rem} }
+
   /* ---------- about ---------- */
   .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2.4rem;align-items:start}
   @media (max-width:860px){ .about-grid{grid-template-columns:1fr;gap:1.6rem} }
@@ -318,6 +332,27 @@
         <img src="images/interior-bath.jpg" alt="Updated bathroom with a tiled walk-in shower, pebble floor, and a new vanity">
         <figcaption>Rebuilt bath — tiled walk-in shower</figcaption>
       </figure>
+    </div>
+
+    <div class="walk">
+      <div>
+        <video controls preload="none" playsinline
+               poster="video/walkthrough-poster.jpg"
+               width="720" height="1280">
+          <source src="video/walkthrough-1120.mp4" type="video/mp4">
+          Your browser can't play this video —
+          <a href="video/walkthrough-1120.mp4">download the walkthrough</a> instead.
+        </video>
+      </div>
+      <div>
+        <h3>Walk the unit</h3>
+        <p>
+          A short phone walkthrough of the Arbutus unit — kitchen, living area, hall
+          and both bedrooms, start to finish. No narration, so there's nothing to turn up.
+        </p>
+        <a class="btn ghost" href="video/walkthrough-1120.mp4" target="_blank" rel="noopener">Open video in a new tab</a>
+        <p class="meta">48 seconds &middot; no sound &middot; MP4</p>
+      </div>
     </div>
   </div>
 </section>
