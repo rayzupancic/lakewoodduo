@@ -1,0 +1,12 @@
+{
+  // Lakewood Duo LLC — static one-page site served by Cloudflare Workers.
+  // Assets-only Worker: there is no script, Cloudflare just serves ./site.
+  // Deploy manually with:  npx wrangler deploy
+  // Or connect this repo under Workers & Pages -> lakewoodduo -> Settings -> Build
+  // to deploy automatically on every push to main.
+  "name": "lakewoodduo",
+  "compatibility_date": "2026-09-07",
+  "assets": {
+    "directory": "./site"
+  }
+}
