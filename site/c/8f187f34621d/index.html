@@ -14,8 +14,9 @@
      only by its unguessable URL, and it is marked noindex so search
      engines will not list it. robots.txt also disallows /c/.
 
-     TO SET THE MOVE-IN DATE:
-     Search for MOVE_IN_DATE below and replace the placeholder text.
+     DATES ON THIS PAGE:
+     Inspection 15 Aug 2026; tenant notes received 23 Aug 2026.
+     Both appear in the facts strip / Tenant notes section below.
 
      TO MAKE A RECORD FOR A DIFFERENT UNIT OR TENANT:
      Copy this whole folder to a new random name under site/c/,
@@ -118,6 +119,8 @@
   }
   .grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
   .grid figcaption{font-size:.85rem;color:var(--ink-soft);padding:.7rem .85rem}
+  /* tenant photos are 9:16 phone shots — show them whole, uncropped */
+  .grid.tenant img{aspect-ratio:9/16;object-fit:contain;background:#f1efeb}
 
   /* condition notes */
   .notes{list-style:none;margin:0;padding:0;display:grid;gap:.75rem;max-width:48rem}
@@ -126,6 +129,12 @@
     font-size:.96rem;color:var(--ink-soft)
   }
   .notes strong{display:block;color:var(--ink);font-weight:600;margin-bottom:.1rem}
+  .notes.tenant li{border-left:3px solid var(--sand)}
+  .attrib{
+    display:inline-block;font-size:.78rem;letter-spacing:.02em;font-weight:600;
+    color:#7a5a22;background:#fbf2e2;border:1px solid #f0e0c2;
+    border-radius:999px;padding:.24rem .7rem;margin:0 0 1.1rem
+  }
   .caveat{font-size:.9rem;color:var(--ink-soft);margin:1.5rem 0 0;max-width:44rem;font-style:italic}
 
   footer{border-top:1px solid var(--line);padding:2rem 0 2.8rem;font-size:.9rem;color:var(--ink-soft)}
@@ -137,7 +146,8 @@
     .stamp,.btn{display:none}
     body{background:#fff;font-size:11pt}
     section{padding:1.2rem 0;break-inside:avoid}
-    .grid img{aspect-ratio:4/3}
+    .grid:not(.tenant) img{aspect-ratio:4/3}
+    .grid.tenant{grid-template-columns:repeat(3,1fr)}
     .walk{display:none}
   }
 </style>
@@ -176,9 +186,8 @@
       <dd>Lakewood, Colorado</dd>
     </div>
     <div>
-      <dt>Move-in date</dt>
-      <!-- MOVE_IN_DATE — replace the text below with the actual date -->
-      <dd>[ add move-in date ]</dd>
+      <dt>Inspection date</dt>
+      <dd>August 15, 2026</dd>
     </div>
     <div>
       <dt>Recorded by</dt>
@@ -194,9 +203,10 @@
       printing this page to PDF from your browser.
     </p>
     <p>
-      If anything shown here doesn't match what you found when you moved in, email
+      Items you've already reported are recorded under <a href="#tenant-notes">Tenant notes</a>
+      below. If anything else doesn't match what you found, email
       <a href="mailto:manager@lakewoodduo.com?subject=Condition%20record%20—%201120%20S.%20Arbutus">manager@lakewoodduo.com</a>
-      and tell us what's different, so we can note it against this record.
+      and we'll add it to this record.
     </p>
   </div>
 </div>
@@ -303,6 +313,63 @@
     <p class="caveat">
       Photographs and video recorded before occupancy. This record covers what is visible in
       those images; it is not a substitute for the walkthrough inspection or the lease.
+    </p>
+  </div>
+</section>
+
+<section id="tenant-notes">
+  <div class="wrap">
+    <h2>Tenant notes</h2>
+    <span class="attrib">Reported by the tenant &middot; August 23, 2026</span>
+    <p class="sec-intro">
+      Items the tenant identified after the August 15 inspection, recorded here as received
+      and photographed by the tenant. They are noted as present at the start of the tenancy.
+    </p>
+
+    <ul class="notes tenant">
+      <li>
+        <strong>Linen closet — scuffing not painted over</strong>
+        Scuff marks on the interior walls of the linen closet that appear not to have been
+        painted over when the unit was repainted.
+      </li>
+      <li>
+        <strong>Wall beside the linen closet — small scuff</strong>
+        A small scuff on the wall adjacent to the linen closet.
+      </li>
+      <li>
+        <strong>Entryway / kitchen floor transition — glue residue</strong>
+        Glue or adhesive residue along the floor transition strip between the entryway
+        and the kitchen.
+      </li>
+    </ul>
+
+    <div class="grid tenant" style="margin-top:1.8rem">
+      <figure>
+        <img src="tenant-closet.jpg" alt="Linen closet interior with painted shelves and a marked back wall">
+        <figcaption>Linen closet — shelves and back wall</figcaption>
+      </figure>
+      <figure>
+        <img src="tenant-closet-detail.jpg" alt="Close view of scuff marks on the linen closet back wall, not painted over">
+        <figcaption>Linen closet — scuffing on the back wall, not painted over</figcaption>
+      </figure>
+      <figure>
+        <img src="tenant-wall-scuff.jpg" alt="Scuff mark on the wall next to the linen closet door, labeled by the tenant">
+        <figcaption>Scuff on the wall beside the linen closet</figcaption>
+      </figure>
+      <figure>
+        <img src="tenant-transition-1.jpg" alt="Floor transition strip between entryway and kitchen showing adhesive residue, labeled glue residue 1">
+        <figcaption>Entryway / kitchen transition — glue residue (1 of 2)</figcaption>
+      </figure>
+      <figure>
+        <img src="tenant-transition-2.jpg" alt="Second view of the entryway to kitchen transition strip showing adhesive residue, labeled glue residue 2">
+        <figcaption>Entryway / kitchen transition — glue residue (2 of 2)</figcaption>
+      </figure>
+    </div>
+
+    <p class="caveat">
+      Photographs in this section were taken and labeled by the tenant. Listing an item here
+      records that it was reported and when; it is not by itself a determination of cause or
+      of responsibility for repair.
     </p>
   </div>
 </section>
